@@ -8,14 +8,7 @@ Route::get('/', function () {
     return view('panel');
 })->name('panel');
 
-Route::get('/Login', function () {
-    return view('login');
-})->name('Login');
 
-Route::get('/Registro', function () {
-    return view('panel.registro');
-})->name('Registro');
 
-Route::post('/Login', function () {
 
-});
+
