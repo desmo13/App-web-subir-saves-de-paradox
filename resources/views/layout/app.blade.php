@@ -14,7 +14,7 @@
 
     {{-- Navbar simple --}}
     <nav class="bg-white shadow mb-4">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative">
             <a href="{{ url('/') }}" class="text-xl font-bold">MiApp</a>
             <div class="flex items-center">
                 <a href="{{ url('/') }}" class="px-3">Inicio</a>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div id="menu"
-                class="absolute right-4 mt-40 w-48 origin-top-right bg-white border border-gray-200 rounded-lg shadow-lg hidden">
+                class="absolute right-0 mt-34 w-48 origin-top-right bg-white border border-gray-200 rounded-lg shadow-lg hidden">
                @if(Auth::check())
                 <p class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     {{ Auth::user()->name }}
@@ -56,12 +56,10 @@
     </main>
 
     {{-- Footer --}}
-    <footer class="mt-10 py-6 text-center text-sm text-gray-500 absolute bottom-0 left-0 right-0">
+    <footer class="mt-10 py-6 text-center text-sm text-gray-500 fixed bottom-0 left-0 right-0 bg-gray-200">
         &copy; {{ date('Y') }} Mi App Laravel. Todos los derechos reservados.
     </footer>
 
-    {{-- JS (ejemplo con Vite) --}}
-    @vite('resources/js/app.js')
 </body>
 <script>
     const menuButton = document.getElementById('menu-button');
