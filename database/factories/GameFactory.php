@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use App\Models\GameName;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Game>
  */
@@ -21,6 +21,7 @@ class GameFactory extends Factory
             'description' => $this->faker->paragraph(),
             'public'      => $this->faker->boolean(),
             'user_id'     => 1, // cada game se asocia a un User generado
+            'game_name_id'=> GameName::factory(),
         ];
     }
 }

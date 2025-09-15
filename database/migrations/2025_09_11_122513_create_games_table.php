@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id()->unique()->autoIncrement();
             $table->foreignId('user_id')->constrained("users")->cascadeOnDelete();
+            $table->foreignId('game_name_id')->constrained("game_names")->cascadeOnDelete();
             $table->string('title');
             $table->string('description');
             $table->boolean('public');

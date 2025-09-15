@@ -9,9 +9,18 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 class User extends Authenticatable
 {
+
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
+    public function isSuperAdmin(): bool
+    {
+        return $this->role === 'superadmin' ;
+    }
 
+    public function isClient(): bool
+    {
+        return $this->role === 'client' ;
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +30,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**

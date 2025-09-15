@@ -5,20 +5,26 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Middleware\CheckSuperAdmin;
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
         then: function (): void {
-            Route::middleware(['web','admin','auth'])
+            Route::middleware(['web', 'cliente'])
                 ->prefix('panel')
                 ->group(base_path('routes/panel.php'));
+            Route::middleware(['web', 'superadmin'])
+                ->prefix('superadmin')
+                ->group(base_path('routes/superadmin.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        $middleware->alias(['admin'=>CheckAdmin::class]);
+        $middleware->alias([
+            'cliente'=>CheckAdmin::class,
+            'superadmin'=>CheckSuperAdmin::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

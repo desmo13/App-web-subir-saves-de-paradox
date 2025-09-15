@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use  App\Models\Game;
-class GameController extends Controller
+use App\Models\GameName;
+use App\Http\Requests\StoreGameNameRequest;
+use App\Http\Requests\UpdateGameNameRequest;
+
+class GameNameController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $sort = 'titulo';
-        $dir = 'asc';
-        $items = Game::query()->orderBy($sort,$dir)->paginate(3);
-        return view('panel',compact('items','sort','dir'));
+        //
     }
 
     /**
@@ -28,7 +27,7 @@ class GameController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreGameNameRequest $request)
     {
         //
     }
@@ -36,7 +35,7 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(GameName $gameName)
     {
         //
     }
@@ -44,7 +43,7 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(GameName $gameName)
     {
         //
     }
@@ -52,7 +51,7 @@ class GameController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateGameNameRequest $request, GameName $gameName)
     {
         //
     }
@@ -60,7 +59,7 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(GameName $gameName)
     {
         //
     }
