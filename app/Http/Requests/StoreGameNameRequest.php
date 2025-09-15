@@ -11,7 +11,7 @@ class StoreGameNameRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return $this->user()->isSuperAdmin();
     }
 
     /**
@@ -22,7 +22,15 @@ class StoreGameNameRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'name' => 'required|string|min:3',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'El nombre es obligatorio.',
+            'name.min'      => 'El nombre debe tener al menos 3 caracteres.',
+            'name.unique'   => 'Este nombre de juego ya existe.',
         ];
     }
 }
