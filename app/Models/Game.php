@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Game extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'public',
+        'user_id',
+        'game_name_id',
+    ];
     /**
      * Get the user that owns the Game
      *

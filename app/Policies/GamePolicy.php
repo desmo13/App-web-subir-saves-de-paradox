@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\Models\Game;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
-
+use Illuminate\Support\Facades\Log;
 class GamePolicy
 {
     /**
@@ -39,7 +39,7 @@ class GamePolicy
      */
     public function create(User $user): bool
     {
-
+        Log::info('GamePolicy@create', ['user_id' => $user->id, 'role' => $user->role]);
         if($user->isSuperAdmin() || $user->isClient()){
             return true;
         }

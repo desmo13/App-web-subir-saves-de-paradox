@@ -21,6 +21,17 @@
                 <textarea id="description" name="description" rows="3" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">{{ old('description') }}</textarea>
             </div>
         </div>
+        <div class="mt-4">
+            <label for="game_name_id" class="block text-sm font-medium text-gray-700">Nombre del juego</label>
+            <div class="mt-1">
+                <select id="game_name_id" name="game_name_id" class="block w-full pl-7 pr-12 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                    <option value="">Seleccione un nombre de juego</option>
+                    @foreach($gameNames as $gameName)
+                        <option value="{{ $gameName->id }}">{{ $gameName->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
         <div>
             <label for="public" class="block text-sm font-medium text-gray-700">¿Es público?</label>
             <div class="mt-1 relative rounded-md shadow-sm">

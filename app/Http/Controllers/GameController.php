@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGameRequest;
 use App\Models\Game;
+use App\Models\GameName;
+
 use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class GameController extends Controller
 {
@@ -12,7 +17,7 @@ class GameController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(Game::class, 'game');
+        $this->authorizeResource(Game::class, 'games');
     }
 
 
@@ -33,15 +38,21 @@ class GameController extends Controller
      */
     public function create()
     {
-        return view('page.Game.Create');
+        $gameNames = GameName::query()->orderBy('name','asc')->get();
+        return view('page.Game.Create',compact('gameNames'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreGameRequest $request)
     {
-        //
+    $data = $request->validated();
+    $data['user_id'] = Auth::id();
+
+    $game = Game::create($data);
+
+    return redirect()->route('games.index')->with('success','El juego ha sido creado exitosamente');
     }
 
     /**

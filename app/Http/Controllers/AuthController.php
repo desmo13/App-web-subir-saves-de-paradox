@@ -22,7 +22,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($credentials,$request->boolean("remember-me"))) {
             $request->session()->regenerate();
-            return redirect()->intended('panel');
+            return redirect()->route('games.index');
         }
          return back()->withErrors([
             'email' => 'Las credenciales no coinciden con nuestros registros.',
@@ -57,7 +57,7 @@ class AuthController extends Controller
 
         Auth::login($user);
         $request->session()->regenerate();
-        return redirect()->route('panel');
+        return redirect()->route('games.index');
     }
 }
 
