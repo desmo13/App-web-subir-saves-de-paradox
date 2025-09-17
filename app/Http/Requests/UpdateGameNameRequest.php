@@ -22,7 +22,15 @@ class UpdateGameNameRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|min:3|unique:game_names,name,'.$this->route('game_name')->id,
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'El nombre es obligatorio.',
+            'name.min'      => 'El nombre debe tener al menos 3 caracteres.',
+            'name.unique'   => 'Este nombre de juego ya existe.',
         ];
     }
 }

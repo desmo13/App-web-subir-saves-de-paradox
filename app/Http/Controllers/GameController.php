@@ -2,15 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use  App\Models\Game;
+use App\Models\Game;
+use Illuminate\Routing\Controller;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
 class GameController extends Controller
 {
+    use AuthorizesRequests;
+
+    public function __construct()
+    {
+        $this->authorizeResource(Game::class, 'game');
+    }
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         $sort = 'titulo';
         $dir = 'asc';
         $items = Game::query()->orderBy($sort,$dir)->paginate(3);
@@ -22,7 +33,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view('page.Game.Create');
     }
 
     /**

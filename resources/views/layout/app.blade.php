@@ -18,7 +18,7 @@
             <a href="{{ url('/') }}" class="text-xl font-bold">MiApp</a>
             <div class="flex items-center">
                 <a href="{{ url('/') }}" class="px-3">Inicio</a>
-                <a href="{{ url('/panel') }}" class="px-3">Panel</a>
+                <a href="{{ route('games.index') }}" class="px-3">Juegos</a>
                 <div class="relative inline-block text-left">
                     <button id="menu-button" class="flex items-center focus:outline-none">
                         <img src="{{ asset('img/logo.webp') }}" alt="User" class="h-10 w-auto mr-[-15px]">

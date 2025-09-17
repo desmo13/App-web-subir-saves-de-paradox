@@ -29,7 +29,8 @@ class GameNameController extends Controller
      */
     public function store(StoreGameNameRequest $request)
     {
-        //
+        $gameName = GameName::create($request->validated());
+        return redirect()->route('panel')->with('success','El nombre de juego ha sido creado exitosamente');//cambiar la ruta por otra que no sea panel
     }
 
     /**
