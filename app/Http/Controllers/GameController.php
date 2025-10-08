@@ -24,13 +24,18 @@ class GameController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $sort = $request->get('sort','titulo');
+        $dir = $request->get('dir','asc');
+        $search = $request->get('search');
+        $items = Game::query()->orderBy($sort,$dir);
+        if($search){
+            $items->where('title','like','%'.$search.'%');
+        }
+        $items = $items->paginate(6);
 
-        $sort = 'titulo';
-        $dir = 'asc';
-        $items = Game::query()->orderBy($sort,$dir)->paginate(3);
-        return view('panel',compact('items','sort','dir'));
+        return view('panel',compact('items','sort','dir','search'));
     }
 
     /**
