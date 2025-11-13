@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained("users")->cascadeOnDelete();
             $table->foreignId('game_name_id')->constrained("game_names")->cascadeOnDelete();
             $table->string('title');
+            $table->string('file_name')->nullable();
+            $table->string('path')->nullable();
             $table->string('description');
             $table->boolean('public');
             $table->timestamps();

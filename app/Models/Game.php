@@ -15,6 +15,8 @@ class Game extends Model
         'public',
         'user_id',
         'game_name_id',
+        'file_name',
+        'path',
     ];
     /**
      * Get the user that owns the Game

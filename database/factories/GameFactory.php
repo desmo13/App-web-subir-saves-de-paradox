@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\GameName;
+use Illuminate\Support\Str;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Game>
  */
@@ -20,6 +21,8 @@ class GameFactory extends Factory
             'title'       => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
             'public'      => $this->faker->boolean(),
+            'file_name'   => Str::random(10) . '.' . $this->faker->fileExtension(),
+            'path'        =>Str::random(10) . '.' . $this->faker->fileExtension(),
             'user_id'     => 1, // cada game se asocia a un User generado
             'game_name_id'=> GameName::factory(),
         ];

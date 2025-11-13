@@ -54,7 +54,17 @@
                         <option value="0">No</option>
                         <option value="1">Si</option>
                     </select>
+
                 </div>
+                                    <label class="block text-sm font-medium text-slate-200 mb-1">
+                        Archivo
+                    </label>
+                    <input type="file" name="file"
+                        class="block w-full text-sm text-slate-200
+                               file:mr-4 file:py-2 file:px-3
+                               file:rounded-md file:border-0
+                               file:bg-orange-500 file:text-slate-950
+                               hover:file:bg-orange-400 cursor-pointer">
             </div>
         </div>
         <div class="flex justify-end gap-3 pt-4">

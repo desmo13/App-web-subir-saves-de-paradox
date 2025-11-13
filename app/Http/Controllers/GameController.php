@@ -55,7 +55,14 @@ class GameController extends Controller
     $data = $request->validated();
     $data['user_id'] = Auth::id();
 
-    $game = Game::create($data);
+    $uploadFile = $request->file('file');
+
+    if($uploadFile){
+        $path =$uploadFile->store('uploads');
+        $data['file_name'] = $uploadFile->getClientOriginalName();
+        $data['path'] = $path;
+    }
+    Game::create($data);
 
     return redirect()->route('games.index')->with('success','El juego ha sido creado exitosamente');
     }
