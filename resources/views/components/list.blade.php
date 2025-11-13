@@ -11,7 +11,7 @@
     <ul class="flex divide-y divide-gray-200 gap-4 flex-wrap">
 
         @foreach ($items as $item)
-            <li class="border-b border-gray-200 py-6 sm:py-10 lg:py-6 ">
+            <li class="border-b border-gray-200 py-6 sm:py-10 lg:py-6  w-full">
                 <div class="flex items-center justify-between space-x-4">
                     <div class="min-w-0 space-y-3">
                         <div class="flex items-center space-x-3">
