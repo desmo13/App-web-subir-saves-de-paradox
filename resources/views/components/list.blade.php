@@ -1,13 +1,55 @@
 <section class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-    <form action="{{ url()->current() }}" method="GET" class="flex items-center space-x-4">
-        <input type="text" name="search" placeholder="Buscar..."
-            class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-        <button type="submit"
-            class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-            Buscar
-        </button>
-        {{ $toolbar ?? 'No ahi' }}
-    </form>
+
+<form
+    action="{{ url()->current() }}"
+    method="GET"
+    class="w-full bg-slate-900/80 border border-slate-800 rounded-2xl
+           px-5 py-4 shadow-lg shadow-orange-500/10 mb-6"
+>
+    <div class="flex flex-wrap items-center gap-4">
+
+        {{-- Buscador --}}
+        <div class="relative flex-1 min-w-[220px]">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">
+                <img src="{{asset('img/buscar.png')  }}" alt="Search icon" class="w-4 h-4">
+            </span>
+
+            <input
+                type="text"
+                name="search"
+                value="{{ request('search') }}"
+                placeholder="Buscar juegos..."
+                class="w-full rounded-xl bg-slate-800 border border-slate-700
+                       pl-9 pr-4 py-2.5 text-slate-100 placeholder-slate-400
+                       focus:outline-none focus:ring-2 focus:ring-orange-500/40
+                       focus:border-orange-500 transition"
+            >
+        </div>
+
+        {{-- Aquí puedes meter filtros extra en el futuro --}}
+        <div class="flex flex-wrap items-center gap-2 text-sm text-slate-300">
+            <button type="submit" class="inline-flex items-center justify-center gap-2
+               rounded-xl bg-orange-500 px-5 py-2.5 text-sm font-semibold
+               text-slate-950 shadow-md shadow-orange-500/30
+               hover:bg-orange-400 hover:shadow-lg
+               focus:outline-none focus:ring-2 focus:ring-orange-500/60
+               focus:ring-offset-2 focus:ring-offset-slate-900
+               transition">
+                Buscar
+            </button>
+
+        </div>
+
+        {{-- Toolbar (botón Crear juego, etc.) --}}
+        @if(!empty($toolbar))
+            <div class="flex items-center gap-2 ml-auto">
+                {{ $toolbar }}
+            </div>
+        @endif
+
+    </div>
+</form>
+
     <ul class="flex divide-y divide-gray-200 gap-4 flex-wrap">
 
         @foreach ($items as $item)
@@ -21,10 +63,10 @@
                                     alt="">
                             </div>
                             <div class="min-w-0 flex-1">
-                                <p class="text-sm font-medium text-gray-900">
+                                <p class="text-sm font-medium text-slate-200">
                                     {{ $item->title }}
                                 </p>
-                                <p class="mt-1 text-sm text-gray-500">
+                                <p class="mt-1 text-sm text-slate-200">
                                     {{ $item->description }}
                                 </p>
                             </div>
@@ -37,7 +79,8 @@
 
     </ul>
     <div>
-<div class="py-3 color-white">
+<div class="py-3 color-white ">
+
     {!! $items->links() !!}
 </div>
 
