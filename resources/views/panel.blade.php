@@ -21,7 +21,7 @@
                focus:ring-offset-2 focus:ring-offset-slate-900
                transition"
     >
-        ➕ Crear juego
+        + Crear juego
     </a>
 </x-slot>
 
