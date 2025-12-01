@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignId('game_name_id')->constrained("game_names")->cascadeOnDelete();
             $table->string('title');
             $table->string('file_name')->nullable();
+            $table->integer('number_of_Downloads')->default(0);
+            $table->integer('favorite')->default(0);
             $table->string('path')->nullable();
             $table->string('description');
             $table->boolean('public');

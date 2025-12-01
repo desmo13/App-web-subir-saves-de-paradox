@@ -58,7 +58,7 @@
                     <div class="min-w-0 space-y-3">
                         <div class="flex items-center space-x-3">
                             <div class="flex-shrink-0">
-                                <h2 class="text-xs font-bold text-slate-200 absolute  border-slate-400 rounded-md px-4 bg-slate-900/50 mt-2 ml-2">Crusader Kings III</h2>
+                                <h2 class="text-xs font-bold text-slate-200 absolute  border-slate-400 rounded-md px-4 bg-slate-900/50 mt-2 ml-2">{{$item->game_name->name}}</h2>
                                 <img class="h-38 w-48 rounded-lg {{ !$item->image ? 'bg-gradient-to-tr from-slate-700 to-zinc-800' : '' }}"
                                     src={{ $item->image ? asset('img/games/'.$item->image) : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" }}
                                     />
@@ -68,7 +68,7 @@
                                     {{ $item->title }}
                                 </h3>
                                 <p class="mt-1 text-sm text-slate-200 line-clamp-2 mt-2 mb-2">
-                                   Por <strong>Mario</strong> · Versión 1.12 · Última actualización: 03/10/2025
+                                   Por <strong>{{$item->user ->name}}</strong> · Versión 1.12 · Última actualización: {{ $item->updated_at->format('d/m/Y') }}
                                 </p>
                                 <p class="mt-1 text-sm text-slate-200">
                                     {{ $item->description }}
@@ -84,9 +84,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col justify-center">
-                    <p> 1000 Dowloads</p>
-                    <p> 👍 100 likes</p>
+                <div class="flex flex-col justify-center gap-1 padding-2">
+                    <p class="flex"> <img src="{{asset('img/download.png')}}" alt="Download icon" class="w-4 h-4 translate-y-[20%] mr-1"> {{$item->number_of_Downloads}}</p>
+                    <p class="flex"><img src="{{asset('img/estrella.png')}}" alt="favourite icon" class="w-4 h-4 translate-y-[20%] mr-1"> {{$item->favorite}}</p>
 
                     <div class=" flex gap-2 items-center">
                     <button type="button"

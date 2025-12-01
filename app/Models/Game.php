@@ -17,6 +17,8 @@ class Game extends Model
         'game_name_id',
         'file_name',
         'path',
+        'number_of_Downloads',
+        'favorite',
     ];
     /**
      * Get the user that owns the Game
@@ -26,5 +28,14 @@ class Game extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    /**
+     * Get the GameName that owns the Game
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function game_name(): BelongsTo
+    {
+        return $this->belongsTo(GameName::class, 'game_name_id');
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 class GameName extends Model
 {
     /** @use HasFactory<\Database\Factories\GameNameFactory> */
@@ -14,13 +14,14 @@ class GameName extends Model
     protected $fillable = [
         'name',
     ];
+
     /**
-     * Get the Game that owns the GameName
+     * Get the games that owns the GameName
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Game(): BelongsTo
+    public function games(): HasMany
     {
-        return $this->belongsTo(Game::class, 'game_id');
+        return $this->hasMany(Game::class, 'game_name_id');
     }
 }
