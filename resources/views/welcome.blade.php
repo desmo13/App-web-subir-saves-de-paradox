@@ -256,7 +256,7 @@
                             i
                         </span>
                         <span>
-                            Cuando tengas el backend listo, estas tarjetas se pueden rellenar con datos reales de tu base de datos.
+                            Mario del futuro recuerda cambiar estas tarjetas se pueden rellenar con datos reales de tu base de datos.
                         </span>
                     </div>
                 </div>
