@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123456'),
         ]);
         $this->call(GameSeeder::class);
+        $this->call(GameTagSeeder::class);
     }
 }
