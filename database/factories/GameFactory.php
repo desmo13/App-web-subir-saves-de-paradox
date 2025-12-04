@@ -21,7 +21,7 @@ class GameFactory extends Factory
             'title'       => $this->faker->sentence(3),
             'description' => $this->faker->paragraph(),
             'public'      => $this->faker->boolean(),
-            'number_of_Downloads' => $this->faker->numberBetween(0, 100),
+            'number_of_downloads' => $this->faker->numberBetween(0, 100),
             'favorite'    => $this->faker->numberBetween(0, 1000),
             'file_name'   => Str::random(10) . '.' . $this->faker->fileExtension(),
             'path'        =>Str::random(10) . '.' . $this->faker->fileExtension(),

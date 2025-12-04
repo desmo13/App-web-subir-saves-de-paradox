@@ -17,7 +17,7 @@ class Game extends Model
         'game_name_id',
         'file_name',
         'path',
-        'number_of_Downloads',
+        'number_of_downloads',
         'favorite',
     ];
     /**
