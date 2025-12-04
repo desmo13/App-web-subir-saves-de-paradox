@@ -252,7 +252,7 @@
 
                     {{-- Chip informativo --}}
                     <div class="flex items-center gap-2 text-[11px] text-slate-400">
-                        <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-orange-500/15 text-orange-300 border border-orange-500/40 text-xs">
+                        <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-orange-500/15 text-orange-300 border border-orange-500/40 text-xs px-2 py-0.5">
                             i
                         </span>
                         <span>

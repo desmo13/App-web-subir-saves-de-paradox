@@ -145,7 +145,7 @@
 
                         <span class="h-4 w-px bg-slate-700"></span>
 
-                        <div class="flex items-center gap-1.5">
+                        <div class="flex items-center gap-1.5 px-4 py-0.5">
                             <img src="{{ asset('img/estrella.png') }}"
                                  alt="Favourite icon"
                                  class="w-4 h-4" />
